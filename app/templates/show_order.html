@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>cart<!doctype html>
+        <html lang="en">
+        
+        <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+            <!-- Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+            <title>Cart</title>
+        </head>
+        <style>
+            .status{
+                transform: rotate(90deg);
+                
+                position: relative;
+                margin-top: 100px;
+            }
+        </style>
+        <body>
+            <div class="container-fluid " id="top">
+                <div class="container">
+                    <div class="row " id="search">
+                        <div class="col-2 bg-primary p-2">
+                      <a href="{% url 'home' %}"><h5 class="text-white text-center mt-md-3">Flipkart</h5></a>
+                        </div>
+                        <div class="col-8 bg-primary ">
+                           
+        
+                        </div>
+                        <div class="col-2 bg-primary p-md-2">
+                            
+                        </div>
+                    </div>
+        
+                   
+                      
+           <div class="row  p-3 border ">
+          show order
+        
+           </div>
+           {% for all in all %}
+           
+          
+                    <div class="row row-cols-md-4">
+
+                      <div class="col-md-8 mt-4 p-2 offset-md-2  ">
+                        <div class="row p-2">
+
+                            <div class="col-3 p-2 ">
+                                <a href="{% url 'show' all.pid %}"><img src="\media\{{all.img}}" alt="" height="130" class="mx-2"></a>
+                            </div>
+
+                            <div class="col-6">
+                                <ul>
+                                    <li>name: {{all.pname}}</li>
+                                    <li>price: {{all.price}}</li>
+                                    <li>pay: {{all.payment}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-3">
+                             <div class="row  ">
+                                 <div class="col-12 p-2 border shadow text-center">Status</div>
+                                 {% if all.order == "order" %}
+                                 <div class="row">
+                                 {% if all.status == "25" %}
+                                 <div class="col p-2 border  my-1 text-center h6">Order</div>
+                                 {% endif %}
+                                 {% if all.status == "50" %}
+                                 <div class="col p-2 border  my-1 text-center text-warning h6">Shipped</div>
+                                 {% endif %}
+                                 {% if all.status == "75" %}
+                                 <div class="col p-2 border  my-1 text-center text-success h6">Out of delivary</div>
+                                 {% endif %}
+                                 {% if all.status == "100" %}
+                                 <div class="col p-2 border  my-1 text-center text-danger h6"> delivard</div>
+                                 {% endif %}
+                                 </div>
+                                
+                                <input type="range" value="{{all.status}}" class="status ">
+                                {% else %}
+                                <div class="col p-2 border  my-1 text-center text-danger h6"> Cancelled</div>
+                                {% endif %}
+
+                             </div>
+                            </div>
+                            <div class="row p-2 ">
+                                <div class="col-8 p-2 ">
+                                    <p>Delivary at</p>
+                                  <p class="h6"> Address:  {{all.address}}</p>
+                                  {% if all.order == "order" %}
+                                  <div class="row mt-3 p-2 border ">
+                                    <div class="col-3">
+                                    <a href="{% url 'conferm' all.id %}"><button class="btn btn-sm btn-danger shadow">Cancelled</button></a>
+                                    </div>
+                                    <div class="col-3 mx-2">
+                                        <button class="btn btn-sm btn-success shadow">Help</button>
+                                        </div>
+                                  </div>
+                                  {% endif %}
+                                </div>
+                            </div>
+                           
+                        </div>
+                      </div>
+
+        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        </body>
+        
+        </html></title>
+</head>
+
+<body>
+<div class="container">
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
